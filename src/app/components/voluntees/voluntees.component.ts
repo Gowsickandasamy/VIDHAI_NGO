@@ -38,10 +38,10 @@ export class VolunteesComponent implements OnInit{
   this.isError = false;
 
   emailjs.sendForm(
-    'service_ky0tfz8',
-    'template_ubqt5id',
+    'service_qurf7jh',
+    'template_vpnx6sh',
     form,
-    'X7UPw2hPXklq7LhNP'
+    '73GYmeZIWC6qpzdam'
   )
   .then((result: EmailJSResponseStatus) => {
     this.isSending = false;
