@@ -1,0 +1,42 @@
+<nav class="navbar">
+  <div class="navbar-container container">
+    <input type="checkbox" name="" id="" />
+    <div class="hamburger-lines">
+      <span class="line line1"></span>
+      <span class="line line2"></span>
+      <span class="line line3"></span>
+    </div>
+    <ul class="menu-items">
+      <li class="nav-item">
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >HOME</a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="#">ABOUT US</a>
+        <ul class="sub-menu">
+          <li><a href="#">How it Started</a></li>
+          <li><a href="#">Our Journey</a></li>
+          <li><a href="#">Our Vision</a></li>
+          <li><a href="#">Our Mission</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="#">GALLERY</a></li>
+      <li class="nav-item"><a href="#">DONATION</a></li>
+      <li class="nav-item">
+        <a routerLink="/voluntees" routerLinkActive="active">VOLUNTEES</a>
+      </li>
+      <li class="nav-item"><a href="#">CONTACT</a></li>
+    </ul>
+    <div class="logo-container">
+      <img src="/assets/images/home/logo.png" alt="VIDHAI Logo" class="logo" />
+      <div class="logo-text">
+        <div class="english-title">VIDHAI</div>
+        <div class="tamil-title">விதை</div>
+      </div>
+    </div>
+  </div>
+</nav>

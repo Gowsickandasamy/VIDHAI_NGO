@@ -1,0 +1,157 @@
+.volunteer-container {
+    display: flex;
+    position: relative;
+    padding-top: 64px;
+  }
+  
+  .left-panel {
+    flex: 1;
+    background-color: #117964;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  @media (min-width: 1025px) {
+  .left-panel img {
+    height: 750px;
+  }
+}
+
+  .right-panel {
+    flex: 1.2;
+    background-color: white;
+    padding: 40px;
+    overflow-y: auto;
+  }
+  
+  .right-panel h2 {
+    margin-bottom: 20px;
+    color: #ff9500;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  
+  input,
+  textarea {
+    flex: 1;
+    min-width: 240px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  button {
+    padding: 12px;
+    border: none;
+    background-color: #ff9500;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+    align-self: flex-start;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #ff9500;
+  }
+  
+  #status-msg {
+    margin-top: 10px;
+    color: green;
+  }
+  
+  .status-message {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .status-message.success {
+    color: green;
+  }
+  
+  .status-message.error {
+    color: red;
+  }
+
+  @media (max-width: 768px) {
+    .volunteer-container {
+      flex-direction: column;
+    }
+  
+    .left-panel,
+    .right-panel {
+      flex: 1;
+      width: 100%;
+    }
+  
+    .left-panel img {
+      width: 100%;
+      height: 300px; /* Increased height */
+      object-fit: cover;
+    }
+  
+    .right-panel {
+      padding: 20px;
+    }
+  
+    .form-group {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    input,
+    textarea {
+      min-width: 100%;
+      width: 100%;
+    }
+  
+    button {
+      width: 100%;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Small screens (<= 480px) */
+  @media (max-width: 480px) {
+    .right-panel h2 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  
+    .right-panel {
+      padding: 15px;
+    }
+  
+    .left-panel img {
+      height: 250px;
+    }
+  
+    button {
+      font-size: 1rem;
+    }
+  }
+  
