@@ -87,7 +87,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy{
       if (firstItem) {
         slider.append(firstItem);
       }
-    }, 30000);
+    }, 3000);
     this.cleanupFns.push(() => clearInterval(this.autoSlideInterval));
   }
 

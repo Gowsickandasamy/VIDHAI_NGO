@@ -1,0 +1,144 @@
+<div class="donate-container">
+  <div class="left-panel">
+    <img src="assets/images/home/voluntees.png" alt="Donation Support" />
+  </div>
+
+  <div class="right-panel">
+    <div class="content-section">
+      <h2 class="main-title">Support Our Mission</h2>
+
+      <div class="description">
+        <p>
+          Your generous donation helps us provide quality education to underprivileged students who excel
+          academically but face financial constraints. Every contribution, no matter how small, makes a significant
+          difference in a student's life.
+        </p>
+        <p>
+          At <span class="highlight">VIDHAI</span>, we believe that financial barriers should never prevent
+          bright minds from achieving their dreams. Your support enables us to:
+        </p>
+        <ul>
+          <li>Provide scholarships to deserving students</li>
+          <li>Supply educational materials and resources</li>
+          <li>Offer mentorship and guidance programs</li>
+          <li>Create sustainable learning environments</li>
+        </ul>
+      </div>
+
+      <div class="donation-methods">
+        <h3 class="section-title">
+          <i class="icon-qr"></i>
+          Quick Donation Methods
+        </h3>
+
+        <!-- QR Code Section -->
+<div class="payment-card qr-section">
+          <div class="qr-content">
+            <div class="qr-placeholder">
+              <div class="qr-icon">📱</div>
+              <p>Scan QR Code to Donate</p>
+              <div class="qr-code-container">
+                <img src="assets/images/home/QR-Code.png" alt="QR Code for Donation" class="qr-code-image" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UPI Section -->
+        <div class="payment-card">
+          <div class="payment-content">
+            <div class="payment-header">
+              <i class="icon-card">💳</i>
+              <h4>UPI Payment</h4>
+            </div>
+            <div class="payment-details">
+              <div class="detail-row">
+                <span class="label">UPI ID:</span>
+                <div class="value-with-copy">
+                  <span class="value">{{ donationInfo.upiId }}</span>
+                  <button 
+                    class="copy-btn"
+                    (click)="copyToClipboard(donationInfo.upiId, 'upi')"
+                    [class.copied]="isCopied('upi')">
+                    <span *ngIf="!isCopied('upi')">📋 Copy</span>
+                    <span *ngIf="isCopied('upi')">✅ Copied!</span>
+                  </button>
+                </div>
+              </div>
+              <div class="detail-row">
+                <span class="label">GPay Number:</span>
+                <div class="value-with-copy">
+                  <span class="value">{{ donationInfo.gpayNumber }}</span>
+                  <button 
+                    class="copy-btn"
+                    (click)="copyToClipboard(donationInfo.gpayNumber, 'gpay')"
+                    [class.copied]="isCopied('gpay')">
+                    <span *ngIf="!isCopied('gpay')">📋 Copy</span>
+                    <span *ngIf="isCopied('gpay')">✅ Copied!</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bank Details Section -->
+        <div class="payment-card">
+          <div class="payment-content">
+            <div class="payment-header">
+              <i class="icon-bank">🏦</i>
+              <h4>Bank Transfer Details</h4>
+            </div>
+            <div class="payment-details">
+              <div class="detail-row">
+                <span class="label">Account Name:</span>
+                <span class="value">{{ donationInfo.bankDetails.accountName }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Account Number:</span>
+                <div class="value-with-copy">
+                  <span class="value">{{ donationInfo.bankDetails.accountNumber }}</span>
+                  <button 
+                    class="copy-btn"
+                    (click)="copyToClipboard(donationInfo.bankDetails.accountNumber, 'account')"
+                    [class.copied]="isCopied('account')">
+                    <span *ngIf="!isCopied('account')">📋 Copy</span>
+                    <span *ngIf="isCopied('account')">✅ Copied!</span>
+                  </button>
+                </div>
+              </div>
+              <div class="detail-row">
+                <span class="label">IFSC Code:</span>
+                <div class="value-with-copy">
+                  <span class="value">{{ donationInfo.bankDetails.ifscCode }}</span>
+                  <button 
+                    class="copy-btn"
+                    (click)="copyToClipboard(donationInfo.bankDetails.ifscCode, 'ifsc')"
+                    [class.copied]="isCopied('ifsc')">
+                    <span *ngIf="!isCopied('ifsc')">📋 Copy</span>
+                    <span *ngIf="isCopied('ifsc')">✅ Copied!</span>
+                  </button>
+                </div>
+              </div>
+              <div class="detail-row">
+                <span class="label">Bank Name:</span>
+                <span class="value">{{ donationInfo.bankDetails.bankName }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Branch:</span>
+                <span class="value">{{ donationInfo.bankDetails.branch }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="thank-you-note">
+          <p>
+            <strong>Thank you for your generosity!</strong> Your donation will directly impact the lives of students
+            who need it most. Together, we can break the barriers to education and create a brighter future for all.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
