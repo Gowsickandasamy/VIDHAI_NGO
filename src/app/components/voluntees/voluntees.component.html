@@ -1,60 +1,234 @@
 <div class="volunteer-container">
-    <div class="left-panel">
-      <img src="assets/images/home/voluntees.png" alt="Volunteers" />
-    </div>
-  
-    <div class="right-panel">
-      <h2>Become a Volunteer</h2>
-  
-      <form #volunteerFormRef (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <input type="text" name="firstname" placeholder="First Name *" required ngModel>
-          <input type="text" name="lastname" placeholder="Last Name *" required ngModel>
-        </div>
-  
-        <div class="form-group">
-          <input type="text" name="company" placeholder="Company Name" ngModel>
-          <input type="email" name="email" placeholder="Email Address *" required ngModel>
-        </div>
-  
-        <div class="form-group">
-          <input type="tel" name="phone" placeholder="Phone Number *"required ngModel>
-          <input type="tel" name="whatsapp" placeholder="WhatsApp Number *" required ngModel>
-        </div>
-  
-        <div class="form-group">
-          <input type="date" name="dob" placeholder="Date of Birth *" required ngModel>
-        </div>
-  
-        <div class="form-group">
-          <textarea name="address" placeholder="Address *" required ngModel></textarea>
-        </div>
-  
-        <div class="form-group">
-          <input type="text" name="city" placeholder="Town/City *" required ngModel>
-          <input type="text" name="state" placeholder="State *" required ngModel>
-        </div>
-  
-        <div class="form-group">
-          <input type="text" name="zip" placeholder="Zip Code *" required ngModel>
-          <input type="text" name="country" placeholder="Country *" required ngModel>
-        </div>
-  
-        <div class="form-group">
-          <textarea name="reason" placeholder="Why you need to join with us?"ngModel></textarea>
-        </div>
-
-        <button type="submit" [disabled]="isSending">
-          {{ isSending ? 'Sending...' : 'Submit' }}
-        </button>
-  
-        <div *ngIf="statusMessage" class="status-message" [ngClass]="{
-          'success': isSuccess,
-          'error': isError
-        }">
-          {{ statusMessage }}
-        </div>
-      </form>
-    </div>
+  <div class="left-panel">
+    <img src="assets/images/home/voluntees.png" alt="Volunteers" />
   </div>
-  
+
+  <div class="right-panel">
+    <h2>Become a Volunteer</h2>
+
+    <form #volunteerFormRef="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div class="form-field">
+          <label for="firstname">First Name *</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            placeholder="First Name"
+            required
+            [(ngModel)]="form.firstname"
+            #firstname="ngModel"
+            [ngClass]="{ invalid: firstname.invalid && (firstname.dirty || firstname.touched) }"
+          />
+          <div class="error">
+            <span *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">Field is required</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="lastname">Last Name *</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="Last Name"
+            required
+            [(ngModel)]="form.lastname"
+            #lastname="ngModel"
+            [ngClass]="{ invalid: lastname.invalid && (lastname.dirty || lastname.touched) }"
+          />
+          <div class="error">
+            <span *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">Field is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-field">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" name="company" placeholder="Company Name" ngModel />
+          <div class="error"><!-- preserve spacing even without validation --></div>
+        </div>
+        <div class="form-field">
+          <label for="email">Email Address *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email Address"
+            required
+            email
+            [(ngModel)]="form.email"
+            #email="ngModel"
+            [ngClass]="{ invalid: email.invalid && (email.dirty || email.touched) }"
+          />
+          <div class="error">
+            <span *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Field is required</span>
+            <span *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">Please enter a valid email</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-field">
+          <label for="phone">Phone Number *</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Phone Number"
+            required
+            [(ngModel)]="form.phone"
+            #phone="ngModel"
+            [ngClass]="{ invalid: phone.invalid && (phone.dirty || phone.touched) }"
+          />
+          <div class="error">
+            <span *ngIf="phone.invalid && (phone.dirty || phone.touched)">Field is required</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="whatsapp">WhatsApp Number *</label>
+          <input
+            type="tel"
+            id="whatsapp"
+            name="whatsapp"
+            placeholder="WhatsApp Number"
+            required
+            [(ngModel)]="form.whatsapp"
+            #whatsapp="ngModel"
+            [ngClass]="{ invalid: whatsapp.invalid && (whatsapp.dirty || whatsapp.touched) }"
+          />
+          <div class="error">
+            <span *ngIf="whatsapp.invalid && (whatsapp.dirty || whatsapp.touched)">Field is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-field">
+          <label for="dob">Date of Birth *</label>
+          <input
+            type="date"
+            id="dob"
+            name="dob"
+            required
+            max="{{ today }}"
+            [(ngModel)]="form.dob"
+            #dob="ngModel"
+            [ngClass]="{ invalid: dob.invalid && (dob.dirty || dob.touched) }"
+          />
+          <div class="error" *ngIf="dob.errors?.['required'] && (dob.dirty || dob.touched)">Field is required</div>
+          <div class="error" *ngIf="dob.errors?.['max'] && (dob.dirty || dob.touched)">Date cannot be in the future</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-field" style="flex: 1;">
+          <label for="address">Address *</label>
+          <textarea
+            id="address"
+            name="address"
+            placeholder="Address"
+            required
+            [(ngModel)]="form.address"
+            #address="ngModel"
+            [ngClass]="{ invalid: address.invalid && (address.dirty || address.touched) }"
+          ></textarea>
+          <div class="error">
+            <span *ngIf="address.invalid && (address.dirty || address.touched)">Field is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-field">
+          <label for="city">Town/City *</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Town/City"
+            required
+            [(ngModel)]="form.city"
+            #city="ngModel"
+            [ngClass]="{ invalid: city.invalid && (city.dirty || city.touched) }"
+          />
+          <div class="error">
+            <span *ngIf="city.invalid && (city.dirty || city.touched)">Field is required</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="state">State *</label>
+          <input
+            type="text"
+            id="state"
+            name="state"
+            placeholder="State"
+            required
+            [(ngModel)]="form.state"
+            #state="ngModel"
+            [ngClass]="{ invalid: state.invalid && (state.dirty || state.touched) }"
+          />
+          <div class="error">
+            <span *ngIf="state.invalid && (state.dirty || state.touched)">Field is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-field">
+          <label for="zip">Zip Code *</label>
+          <input
+            type="text"
+            id="zip"
+            name="zip"
+            placeholder="Zip Code"
+            required
+            [(ngModel)]="form.zip"
+            #zip="ngModel"
+            [ngClass]="{ invalid: zip.invalid && (zip.dirty || zip.touched) }"
+          />
+          <div class="error">
+            <span *ngIf="zip.invalid && (zip.dirty || zip.touched)">Field is required</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="country">Country *</label>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            placeholder="Country"
+            required
+            [(ngModel)]="form.country"
+            #country="ngModel"
+            [ngClass]="{ invalid: country.invalid && (country.dirty || country.touched) }"
+          />
+          <div class="error">
+            <span *ngIf="country.invalid && (country.dirty || country.touched)">Field is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-field" style="flex: 1;">
+          <label for="reason">Why do you want to join us?</label>
+          <textarea id="reason" name="reason" placeholder="Why you need to join with us?" ngModel></textarea>
+        </div>
+      </div>
+
+      <button type="submit">Submit</button>
+
+      <div
+        *ngIf="statusMessage"
+        class="status-message"
+        [ngClass]="{
+          success: isSuccess,
+          error: isError
+        }"
+      >
+        {{ statusMessage }}
+      </div>
+    </form>
+  </div>
+</div>
+
