@@ -6,8 +6,8 @@
             <h4>Vidhai</h4>
             <ul>
                 <li><a routerLink="/">Home</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Gallery</a></li>
+                <li><a [routerLink]="['/']" fragment="about">About us</a></li>
+                <li><a routerLink="/gallery">Gallery</a></li>
                 <li><a routerLink="/donate">Donation</a></li>
                 <li><a routerLink="/voluntees">Voluntees</a></li>
             </ul>

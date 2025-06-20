@@ -8,23 +8,14 @@
     </div>
     <ul class="menu-items">
       <li class="nav-item">
-        <a
-          routerLink="/"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >HOME</a
-        >
+        <a [routerLink]="['/']" [class.active]="activeSection === 'home'">HOME</a>
       </li>
       <li class="nav-item">
-        <a href="#">ABOUT US</a>
-        <ul class="sub-menu">
-          <li><a href="#">How it Started</a></li>
-          <li><a href="#">Our Journey</a></li>
-          <li><a href="#">Our Vision</a></li>
-          <li><a href="#">Our Mission</a></li>
-        </ul>
+        <a [routerLink]="['/']" fragment="about" [class.active]="activeSection === 'about'">ABOUT US</a>
       </li>
-      <li class="nav-item"><a href="#">GALLERY</a></li>
+      <li class="nav-item">
+        <a routerLink="/gallery" routerLinkActive="active">GALLERY</a>
+      </li>
       <li class="nav-item">
         <a  routerLink="/donate" routerLinkActive="active">DONATION</a>
       </li>

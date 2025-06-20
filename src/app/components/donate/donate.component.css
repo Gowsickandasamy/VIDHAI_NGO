@@ -21,7 +21,7 @@
 
 @media (min-width: 1025px) {
   .left-panel img {
-    height: 1620px;
+    height: 100%;
   }
 }
 

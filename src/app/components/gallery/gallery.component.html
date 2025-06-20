@@ -1,0 +1,30 @@
+<div class="gallery-container">
+  <div class="gta-container" [style.backgroundImage]="'url(' + timeline[selectedIndex].image + ')'">
+    <div class="gta-overlay">
+      <div class="gta-content" [ngClass]="animationClass">
+        <h3 class="year">{{ timeline[selectedIndex].year }}</h3>
+        <h1>{{ timeline[selectedIndex].title }}</h1>
+        <p>{{ timeline[selectedIndex].text }}</p>
+      </div>
+
+      <div class="gta-timeline-nav">
+        <div class="arrow-btn up" (click)="scrollUp()" [class.disabled]="selectedIndex === 0">&#9650;</div>
+
+        <div class="arrow-btn left" (click)="scrollUp()" [class.disabled]="selectedIndex === 0">&#9664;</div>
+
+        <ul class="gta-timeline">
+          <li *ngFor="let item of timeline; let i = index"
+              [class.active]="i === selectedIndex">
+            {{ item.year }}
+          </li>
+        </ul>
+
+        <div class="arrow-btn down" (click)="scrollDown()" [class.disabled]="selectedIndex === timeline.length - 1">&#9660;</div>
+
+        <div class="arrow-btn right" (click)="scrollDown()" [class.disabled]="selectedIndex === timeline.length - 1">&#9654;</div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
