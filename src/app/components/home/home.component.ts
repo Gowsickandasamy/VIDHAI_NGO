@@ -90,9 +90,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy{
     }, 8000);
     this.cleanupFns.push(() => clearInterval(this.autoSlideInterval));
   }
-
- 
-
+  
   ngOnDestroy(): void {
     this.cleanupFns.forEach(fn => fn());
   }
