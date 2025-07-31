@@ -107,10 +107,16 @@ export class GalleryComponent implements AfterViewInit {
     }, 50);
   }
 
-    // Added for Bito PR review test
-  resetTimeline() {
-    this.selectedIndex = 0;
-    this.animationClass = 'fade-up';
+resetTimeline(toIndex: number = 0) {
+  if (toIndex < 0 || toIndex >= this.timeline.length) {
+    console.warn('Invalid timeline index');
+    return;
   }
+
+  const previousIndex = this.selectedIndex;
+  this.selectedIndex = toIndex;
+  this.animationClass = previousIndex !== toIndex ? 'fade-up' : this.animationClass;
+}
+
 
 }
