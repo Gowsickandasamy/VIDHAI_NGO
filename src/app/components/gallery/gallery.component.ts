@@ -106,4 +106,11 @@ export class GalleryComponent implements AfterViewInit {
       this.animationClass = 'fade-up';
     }, 50);
   }
+
+    // Added for Bito PR review test
+  resetTimeline() {
+    this.selectedIndex = 0;
+    this.animationClass = 'fade-up';
+  }
+
 }
