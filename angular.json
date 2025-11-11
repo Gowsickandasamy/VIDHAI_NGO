@@ -48,7 +48,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/VIDHAI_NGO/"
+              "baseHref": "/"
             },
             "development": {
               "optimization": false,
