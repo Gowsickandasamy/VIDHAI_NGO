@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component,  AfterViewInit, OnDestroy, ElementRe
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ButtonComponent } from '../../components-library/button/button.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy{
   private cleanupFns: Array<() => void> = [];
   private autoSlideInterval: any;
 
+  buttonText='JOIN US';
 
-  constructor(private elRef: ElementRef) {
+  constructor(private elRef: ElementRef, private router: Router) {
     gsap.registerPlugin(ScrollTrigger);
   }
   ngAfterViewInit(): void {
@@ -103,5 +105,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy{
     if (this.touchEndX > this.touchStartX + 50) {
       slider.prepend(items[items.length - 1]);
     }
+  }
+
+  navigateToVoluntees() {
+    this.router.navigate(['/voluntees']);
   }
 }
