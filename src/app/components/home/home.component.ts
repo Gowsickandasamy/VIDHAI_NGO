@@ -107,7 +107,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy{
     }
   }
 
-  navigateToVoluntees() {
-    this.router.navigate(['/voluntees']);
+  navigateTo(route:string) {
+    this.router.navigate([route]);
   }
 }

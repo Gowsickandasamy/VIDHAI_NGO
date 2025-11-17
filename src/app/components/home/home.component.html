@@ -6,7 +6,7 @@
                     <div class='content'>
                         <h2 class='title'>Empower a Child's Future Through Education</h2>
                         <p class='description'>Your support helps provide books, learning, and hope to children in need. Together, let’s build a brighter tomorrow.</p>
-                        <button>Read More</button>
+                        <button (click)="navigateTo('voluntees')">Join with Us</button>
                     </div>
                 </li>
                 <li class='item' style="background-image: url('assets/images/home/banner_2.jpg')">
@@ -14,14 +14,14 @@
                         <h2 class='title'>Tools of Hope in Every Hand</h2>
                         <p class='description'>With your support, we equip children with books and supplies — opening doors to learning, laughter, and lasting change.
                         </p>
-                        <button>Read More</button>
+                        <button (click)="navigateTo('voluntees')">Join with Us</button>
                     </div>
                 </li>
                 <li class='item' style="background-image: url('assets/images/home/banner_6.jpg')">
                     <div class='content'>
                         <h2 class='title'>Empowering Young Minds</h2>
                         <p class='description'>Through dedicated mentorship and joyful learning, we nurture curiosity and confidence in every child.</p>
-                        <button>Read More</button>
+                        <button (click)="navigateTo('voluntees')">Join with Us</button>
                     </div>
                 </li>
                 <li class='item' style="background-image: url('assets/images/home/banner_3.jpg')">
@@ -30,7 +30,7 @@
                         <p class='description'>
                             In a sunlit room filled with books and eager hearts, young minds dive into learning, building the foundation for a brighter tomorrow.
                         </p>
-                        <button>Read More</button>
+                        <button (click)="navigateTo('donate')">Donate Us</button>
                     </div>
                 </li>
                 <li class='item'
@@ -40,7 +40,7 @@
                         <p class='description'>
                             A vibrant classroom radiates with joy, curiosity, and creativity as children engage in learning, their imaginations illuminated by the power of knowledge and discovery.
                         </p>
-                        <button>Read More</button>
+                        <button (click)="navigateTo('donate')">Donate Us</button>
                     </div>
                 </li>
                 <li class='item'
@@ -137,7 +137,7 @@
                     Come Join with us to elevate the lives of more students in future
                 </p>
                 <div id="button-container" class="revealUp">
-                    <app-button [buttonText]="buttonText" (click)="navigateToVoluntees()"></app-button>
+                    <app-button [buttonText]="buttonText" (click)="navigateTo('voluntees')"></app-button>
                 </div>
             </div>
         </div>

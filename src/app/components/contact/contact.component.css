@@ -227,6 +227,7 @@
 
 @media (max-width: 768px) {
   .contact-container {
+    top:25px;
     padding: 40px 16px;
   }
 
