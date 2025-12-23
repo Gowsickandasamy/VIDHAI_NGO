@@ -11,5 +11,6 @@ export const routes: Routes = [
     {path:'donate', component:DonateComponent},
     {path:'gallery', component:GalleryComponent},
     {path:'contact', component:ContactComponent},
+    {path:'**', redirectTo:''}
 ];
 
