@@ -14,7 +14,7 @@
                         <h2 class='title'>Tools of Hope in Every Hand</h2>
                         <p class='description'>With your support, we equip children with books and supplies — opening doors to learning, laughter, and lasting change.
                         </p>
-                        <button (click)="navigateTo('voluntees')">Join with Us</button>
+                        <button (click)="navigateTo('voluntees')">Donate Now</button>
                     </div>
                 </li>
                 <li class='item' style="background-image: url('assets/images/home/banner_6.jpg')">
@@ -30,7 +30,7 @@
                         <p class='description'>
                             In a sunlit room filled with books and eager hearts, young minds dive into learning, building the foundation for a brighter tomorrow.
                         </p>
-                        <button (click)="navigateTo('donate')">Donate Us</button>
+                        <button (click)="navigateTo('donate')">Donate Now</button>
                     </div>
                 </li>
                 <li class='item'
@@ -40,7 +40,7 @@
                         <p class='description'>
                             A vibrant classroom radiates with joy, curiosity, and creativity as children engage in learning, their imaginations illuminated by the power of knowledge and discovery.
                         </p>
-                        <button (click)="navigateTo('donate')">Donate Us</button>
+                        <button (click)="navigateTo('donate')">Join with Us</button>
                     </div>
                 </li>
                 <li class='item'
@@ -48,7 +48,7 @@
                     <div class='content'>
                         <h2 class='title'>The Joy of Learning Together</h2>
                         <p class='description'>Excited children raise their hands in a vibrant classroom filled with creativity and joy. </p>
-                        <button>Read More</button>
+                        <button (click)="navigateTo('donate')">Donate Now</button>
                     </div>
                 </li>
             </ul>
@@ -63,7 +63,7 @@
                 <div class="welcome-content revealUp">
                     <h1>Welcome to VIDHAI</h1>
                     <h3>"We are here to nurture the Seeds of the future"</h3>
-                    <p>Empowering Futures Through Education – A group of close friends giving back to society by supporting underprivileged students with fees, stationery, and the true essence of education.</p>
+                    <p>Empowering Futures Through Education – Empowering young minds through education, providing underprivileged students with financial support, learning resources, and opportunities to thrive.</p>
                 </div>
             </div>
             <!-- About Us Section -->
@@ -71,11 +71,8 @@
                 <div class="section-text revealUp">
                     <h2>About Us</h2>
                     <p>
-                        At <span class="highlight">VIDHAI</span>, we are dedicated to support the education of underprivileged 
-                        and financially struggling students who excel in academics. 
-                        We believe that financial constraints should never be a barrier to a student's educational journey. 
-                        Our team works tirelessly to provide the necessary resources and support, 
-                        ensuring that bright minds have the opportunity to learn, grow, and achieve their dreams.
+                        <span class="highlight">VIDHAI</span>, is a non-profit educational trust was born from friendship, compassion, and a shared dream. A group of friends, shaped by the same classrooms and values, came together with one simple belief that no child’s future should be decided by their family’s financial condition.
+                     As we grew, we saw many bright children around us struggle -not because they lacked talent, but because they lacked support. VIDHAI was created to change that reality. What started as a small effort to help a few children has now become a heartfelt mission to stand by students who deserve a chance to learn, grow, and dream big.
                     </p>
                 </div>
                 <div class="section-image revealUp">
@@ -88,14 +85,10 @@
                 <div class="section-text revealUp">
                     <h2>Our Mission</h2>
                     <p>
-                        At Vidhai NGO, we believe in the power of giving back. We aim to provide sustainable development to
-                        those in need through various initiatives, including:
+                        We strive to ensure that no deserving student is denied education due to financial hardship. We believe that a child’s dreams should never fade because of a lack of resources.
+                      
+                      We support meritorious students from economically weaker sections by providing financial assistance, essential educational resources, and continuous encouragement. Beyond support, we offer hope -so every child we stand with can learn with confidence, believe in themselves, and move closer to a brighter future.
                     </p>
-                    <ul class="revealUp">
-                        <li>Educational support for underprivileged children</li>
-                        <li>Medical aid and healthcare services</li>
-                        <li>Empowerment programs for women and youth</li>
-                    </ul>
                 </div>
                 <div class="section-image revealUp">
                     <img src="assets/images/home/banner2.jpg" alt="Our Mission Image" />
@@ -109,9 +102,10 @@
                     <p class="revealUp">
                         Inspired by the words of 
                         <span class="highlight">Swami Vivekananda</span> — 
-                        <span class="quote">"If a child cannot come to education, then education must go to the child."</span> — 
-                        Vidhai envisions a future where every underprivileged student, regardless of financial hardships, has access to quality education. 
-                        We strive to break barriers and create opportunities, ensuring that no deserving student is left behind in their pursuit of knowledge and success.
+                        <span class="quote">"If a child cannot come to education, then education must go to the child."</span> 
+                        Vidhai envisions a future where education is accessible to all, regardless of socio-economic background. Through sustained support and community involvement, we envision a future where empowered and educated children contribute positively to their families, communities, and the nation.
+                      
+                      We dream of a world where every child walks into a classroom with hope, confidence, and equal opportunity. A world where education is not a privilege for a few, but a promise to all. Through VIDHAI, we envision empowered children who grow into responsible, educated individuals shaping a better tomorrow.
                     </p>
                 </div>
                 <div class="section-image revealUp">
@@ -121,11 +115,26 @@
 
             <!-- Our Work in Action Section -->
             <div class="ngo-photos animate">
-                <h2 class="revealUp">Our Work in Action</h2>
+                <div class="section-text">
+                    <h2 class="revealUp">Our Work in Action</h2>
+                    <p class="revealUp">
+                        At VIDHAI, we don’t just talk about change -we make it happen. Every day, we strive to transform the dreams of deserving students into reality.
+                    </p>
+                    <ul class="revealUp">
+                        <li>Supporting Education: We provide financial assistance for school fees, books, uniforms, and other essential learning needs, ensuring that no child has to give up on their studies.</li>
+
+                        <li>Mentorship & Guidance: We guide and motivate students, helping them overcome challenges, build confidence, and set goals for a brighter future.</li>
+
+                        <li>Community Collaboration: We work closely with families, schools, and local communities to identify meritorious students and deliver support where it’s needed the most.</li>
+
+                        <li>Celebrating Success: Every milestone matters. From exam achievements to personal growth, we celebrate the progress of every child we support.</li>  
+                    </ul>
+                    <p>
+                        With each student we help, VIDHAI’s vision comes to life: turning potential into achievement, and dreams into reality.
+                    </p>  
+                </div>
                 <div class="photo-gallery revealUp">
                     <img src="assets/images/home/banner2.jpg" alt="NGO Work 1" />
-                    <img src="assets/images/home/banner2.jpg" alt="NGO Work 2" />
-                    <img src="assets/images/home/banner3.png" alt="NGO Work 3" />
                 </div>
             </div>
 
@@ -133,8 +142,8 @@
             <div class="ngo-get-involved animate">
                 <h2 class="revealUp">Get Involved</h2>
                 <p class="revealUp">
-                    <span class="quote">“Yesterday is gone Tomorrow is not yet come We have only today”</span>
-                    Come Join with us to elevate the lives of more students in future
+                    <span class="quote">“Yesterday is gone, tomorrow is uncertain, but today is your chance to make a difference”</span>
+                    Stand with VIDHAI to support deserving students and give them the gift of education
                 </p>
                 <div id="button-container" class="revealUp">
                     <app-button [buttonText]="buttonText" (click)="navigateTo('voluntees')"></app-button>

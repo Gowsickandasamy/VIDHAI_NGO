@@ -13,13 +13,13 @@ copiedField: string | null = null
 
   donationInfo = {
     upiId: "vidhai@paytm",
-    gpayNumber: "+91 9876543210",
+    gpayNumber: "+91 9962520276",
     bankDetails: {
-      accountName: "VIDHAI NGO",
-      accountNumber: "1234567890123456",
-      ifscCode: "SBIN0001234",
-      bankName: "State Bank of India",
-      branch: "Chennai Main Branch",
+      accountName: "VIDHAI EDUCATIONAL TRUST",
+      accountNumber: "03861140013574",
+      ifscCode: "HDFC0000386",
+      bankName: "HDFC Bank",
+      branch: "Santhome Branch",
     },
   }
 
