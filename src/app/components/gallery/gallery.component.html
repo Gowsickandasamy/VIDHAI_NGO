@@ -1,47 +1,77 @@
+<!-- gallery.component.html -->
 <div class="gallery-container">
-    <div class="title-container">
-        <h1 class="title">GALLERY</h1>
-        <p class="subtitle">Moments from Vidhai Foundation’s initiatives</p>
+  <div class="title-container">
+    <div class="title">Gallery</div>
+    <div class="subtitle">
+      Glimpses from our learning circles, activity days, and celebration events.
     </div>
+  </div>
 
-    <div class="body-container">
-        <div class="section" *ngFor="let section of sectionList">
-            <div class="section-header">
-                {{ section.sectionTitle }}
-                <div class="section-divider"></div>
-            </div>
+  <div class="body-container">
+    <div class="section">
+      <div class="section-header">Moments that matter</div>
+      <div class="section-divider"></div>
 
-            <div class="photo-container">
-                <div class="photo-section">
-                    <div class="photo-card" *ngFor="let img of section.images">
-                        <div class="image-wrapper" (click)="openModal(img)">
-                            <img [src]="img.src" [alt]="img.description">
-                            <div class="image-overlay">
-                                <p class="overlay-text">{{ img.details }}</p>
-                            </div>
-                        </div>
-                        <p class="photo-desc">{{ img.description }}</p>
-                    </div>
+      <div class="photo-container">
+        <div class="photo-section">
+          <!-- ONE card per event -->
+          <div
+            class="photo-card"
+            *ngFor="let event of events"
+            (click)="openEventModal(event)"
+          >
+            <div class="image-wrapper">
+              <!-- Cover image = first image of that event -->
+              <img
+                [src]="event.images[0]?.src"
+                [alt]="event.title"
+              />
+              <div class="image-overlay">
+                <div class="overlay-text">
+                  {{ event.title }}
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
 
-<div class="gallery-modal-backdrop" *ngIf="selectedImage" [class.modal-closing]="isClosing" (click)="closeModal()">
+            <div class="photo-title">
+              {{ event.title }}
+            </div>
+            <div class="photo-desc">
+              {{ event.summary }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="gallery-modal-backdrop" *ngIf="selectedEvent" [ngClass]="{ 'modal-closing': isClosing }"
+    (click)="closeModal()">
     <div class="gallery-modal" (click)="$event.stopPropagation()">
         <button class="modal-close-btn" (click)="closeModal()">×</button>
 
-        <div class="modal-content-grid">
+        <div class="modal-content-grid" (click)="showNext()">
+            <!-- IMAGE -->
             <div class="modal-img-wrap">
-                <img [src]="selectedImage.src" [alt]="selectedImage.description">
+                <img *ngIf="currentImage" [src]="currentImage.src" [alt]="selectedEvent?.title" />
+
+                <!-- DOT INDICATORS -->
+                <div class="image-dots">
+                    <span *ngFor="let img of selectedEvent?.images; let i = index"
+                        [class.active]="i === currentEventIndex"
+                        (click)="goToImage(i); $event.stopPropagation()"></span>
+                </div>
             </div>
 
+            <!-- DESCRIPTION -->
             <div class="modal-desc-wrap">
-                <h2 class="modal-title">{{ selectedImage.description }}</h2>
+                <h2 class="modal-title">{{ selectedEvent?.title }}</h2>
                 <p class="modal-text">
-                    {{ selectedImage.details }}
+                    {{ currentImage?.description || selectedEvent?.summary }}
                 </p>
+                <div class="modal-meta">
+                    {{ currentEventIndex + 1 }} / {{ selectedEvent?.images?.length }}
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,18 @@
 import { Component, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+interface EventImage {
+  src: string;
+  description: string;
+}
+
+interface GalleryEvent {
+  id: string;
+  title: string;
+  summary: string;      // short text to show under cover image
+  images: EventImage[]; // all images for that event
+}
+
 @Component({
   selector: 'app-gallery',
   standalone: true,
@@ -9,71 +21,96 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./gallery.component.css'],
 })
 export class GalleryComponent {
-  sectionList = [
+  events: GalleryEvent[] = [
     {
-      sectionTitle: 'Section 1',
+      id: 'event-morning-class',
+      title: 'Morning Learning Moments',
+      summary: 'Children attending focused morning classes with volunteers.',
       images: [
         {
           src: 'assets/images/gallery/pic1.jpg',
-          description: 'Children attending morning class',
-          details: 'Children engaged in a focused morning session, revising lessons and interacting with volunteers.'
+          description: 'Intro session.',
         },
         {
           src: 'assets/images/gallery/pic2.jpg',
-          description: 'Students learning together',
-          details: 'Children engaged in a focused morning session, revising lessons and interacting with volunteers.'
+          description: 'Students learning together.',
         },
         {
           src: 'assets/images/gallery/pic3.jpg',
-          description: 'Group activity session',
-          details: 'Children engaged in a focused morning session, revising lessons and interacting with volunteers.'
-        },
-        {
-          src: 'assets/images/gallery/pic5.jpg',
-          description: 'Group activity session',
-          details: 'Children engaged in a focused morning session, revising lessons and interacting with volunteers.'
-        },
-        {
-          src: 'assets/images/gallery/pic6.jpg',
-          description: 'Group activity session',
-          details: 'Children engaged in a focused morning session, revising lessons and interacting with volunteers.'
-        },
-        {
-          src: 'assets/images/gallery/pic7.jpg',
-          description: 'Group activity session',
-          details: 'Children engaged in a focused morning session, revising lessons and interacting with volunteers.' 
+          description: 'Group activity session.',
         },
       ],
     },
     {
-      sectionTitle: 'Section 2',
+      id: 'event-activity-day',
+      title: 'Activity Day Highlights',
+      summary: 'Fun group activities that build confidence and teamwork.',
       images: [
         {
-          src: 'assets/images/gallery/pic4.jpg',
-          description: 'Group activity session',
-          details: 'Children engaged in a focused morning session, revising lessons and interacting with volunteers.'
+          src: 'assets/images/gallery/pic5.jpg',
+          description: 'Creative circle.',
         },
         {
+          src: 'assets/images/gallery/pic6.jpg',
+          description: 'Team challenges.',
+        },
+        {
+          src: 'assets/images/gallery/pic7.jpg',
+          description: 'Joyful moments.',
+        },
+      ],
+    },
+    {
+      id: 'event-outdoor',
+      title: 'Outdoor Celebrations',
+      summary: 'Special outdoor events full of energy and smiles.',
+      images: [
+        { src: 'assets/images/gallery/pic4.jpg', description: 'Outdoor fun.' },
+        {
           src: 'assets/images/gallery/pic8.jpg',
-          description: 'Group activity session',
-          details: 'Children engaged in a focused morning session, revising lessons and interacting with volunteers.'
+          description: 'Celebration day.',
         },
       ],
     },
   ];
 
-  selectedImage: any | null = null;
+  selectedEvent: GalleryEvent | null = null;
+  currentEventIndex = 0;
   isClosing = false;
-  openModal(img: any) {
+
+  openEventModal(event: GalleryEvent) {
     this.isClosing = false;
-    this.selectedImage = img;
+    this.selectedEvent = event;
+    this.currentEventIndex = 0;
   }
 
   closeModal() {
     this.isClosing = true;
     setTimeout(() => {
-      this.selectedImage = null;
+      this.selectedEvent = null;
+      this.currentEventIndex = 0;
       this.isClosing = false;
     }, 250);
+  }
+
+  showPrev() {
+    if (!this.selectedEvent) return;
+    const len = this.selectedEvent.images.length;
+    this.currentEventIndex = (this.currentEventIndex - 1 + len) % len;
+  }
+
+  showNext() {
+    if (!this.selectedEvent) return;
+    const len = this.selectedEvent.images.length;
+    this.currentEventIndex = (this.currentEventIndex + 1) % len;
+  }
+
+  goToImage(index: number) {
+    this.currentEventIndex = index;
+  }
+
+  get currentImage() {
+    if (!this.selectedEvent) return null;
+    return this.selectedEvent.images[this.currentEventIndex];
   }
 }
